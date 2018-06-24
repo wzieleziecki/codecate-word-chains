@@ -1,2 +1,3 @@
-# codecate-word-chains
-Kata 19 - Word Chains
+**Kata19: Word Chains**
+Treść zadania można znaleźć [tutaj](http://codekata.com/kata/kata19-word-chains/).
+Przykładowy [zestaw słów](http://codekata.com/data/wordlist.txt)
