@@ -1,41 +1,26 @@
-import java.io.BufferedReader;
-import java.io.FileReader;
-import java.io.IOException;
-import java.util.ArrayList;
 import java.util.List;
 
 public class Main {
 
-    public static List<String> getWordsFromFile(int startWordLength){
-        List<String> words = new ArrayList<String>();
-        try {
-            BufferedReader reader = new BufferedReader(new FileReader("src/wordlist.txt"));
-            String word = "";
-            while((word = reader.readLine()) != null ){
-                if (word.length() == startWordLength) {
-                    words.add(word);
-                }
-            }
-
-        } catch (IOException e) {
-            e.printStackTrace();
-
-        }
-        return words;
-    }
-
-
     public static void main(String[] args) {
-        String startWord = "cat";
-        String endWord = "dog";
-        List<String> words = getWordsFromFile(startWord.length());
+        String startWord = "ruby";
+        String endWord = "code";
 
-     //   System.out.println(words.get(1));
+        if (startWord.length() != endWord.length()) {
+            System.err.println("Words must be of the same length");
+            System.exit(1);
+        }
 
-       Graph graph  = new Graph(words) ;
-       List<String> path = graph.findPath(startWord, endWord);
+        DictionaryReader dictionaryReader = new DictionaryReader();
+        List<String> words = dictionaryReader.getWordsFromFile(startWord.length());
 
-        System.out.println(path);
+        Graph graph = new Graph(words);
+        try {
+            List<String> path = graph.findPath(startWord, endWord);
+            System.out.println(path);
+        } catch (NullPointerException n) {
+            System.out.println("No solution found. " + n);
+        }
 
     }
 }
