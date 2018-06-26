@@ -4,23 +4,21 @@ import java.io.IOException;
 import java.util.ArrayList;
 import java.util.List;
 
-public class DictionaryReader {
+public class Dictionary {
 
-    public List<String> getWordsFromFile(final int startWordLength) {
-        List<String> words = new ArrayList<String>();
+    public List<String> loadWordsFromFile() {
+        List<String> allLoadedWords = new ArrayList<String>();
         try {
             BufferedReader reader = new BufferedReader(new FileReader("src/main/resources/wordlist.txt"));
             String word;
             while ((word = reader.readLine()) != null) {
-                if (word.length() == startWordLength) {
-                    words.add(word);
-                }
+                allLoadedWords.add(word);
             }
 
         } catch (IOException e) {
             e.printStackTrace();
-
         }
-        return words;
+        return allLoadedWords;
     }
+
 }

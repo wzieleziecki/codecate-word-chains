@@ -7,16 +7,16 @@ public class Main {
         String endWord = "code";
 
         if (startWord.length() != endWord.length()) {
-            System.err.println("Words must be of the same length");
+            System.err.println("Words shoud contain the same number of letters");
             System.exit(1);
         }
 
-        DictionaryReader dictionaryReader = new DictionaryReader();
-        List<String> words = dictionaryReader.getWordsFromFile(startWord.length());
+        Word word = new Word();
 
+        List<String> words = word.getWordsWithDefinedLetterNumber(startWord.length());
         Graph graph = new Graph(words);
         try {
-            List<String> path = graph.findPath(startWord, endWord);
+            List<String> path = graph.findShortestPath(startWord, endWord);
             System.out.println(path);
         } catch (NullPointerException n) {
             System.out.println("No solution found. " + n);
