@@ -1,3 +1,5 @@
+package info.wzieleziecki;
+
 import java.util.ArrayList;
 import java.util.List;
 
@@ -7,7 +9,7 @@ public class Word {
 
     private List<String> allWordsFromDictionary = dictionary.loadWordsFromFile();
 
-    public List<String> getWordsWithDefinedLetterNumber(int wordLength) {
+    List<String> getWordsWithDefinedLetterNumber(int wordLength) {
         List<String> wordsWithDefinedLetterNumber = new ArrayList<String>();
         for (String word : allWordsFromDictionary) {
             if (word.length() == wordLength) {

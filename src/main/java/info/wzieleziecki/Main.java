@@ -1,13 +1,20 @@
+package info.wzieleziecki;
+
+import org.apache.log4j.Logger;
+
 import java.util.List;
 
 public class Main {
 
     public static void main(String[] args) {
+
+        final Logger logger = Logger.getLogger(Main.class);
+
         String startWord = "ruby";
         String endWord = "code";
 
         if (startWord.length() != endWord.length()) {
-            System.err.println("Words shoud contain the same number of letters");
+            logger.info("Words shoud contain the same number of letters");
             System.exit(1);
         }
 
@@ -17,9 +24,9 @@ public class Main {
         Graph graph = new Graph(words);
         try {
             List<String> path = graph.findShortestPath(startWord, endWord);
-            System.out.println(path);
+            logger.info("Solution for: " + startWord + " to " + endWord + " - " +  path);
         } catch (NullPointerException n) {
-            System.out.println("No solution found. " + n);
+            logger.info("No solution found. " + n);
         }
 
     }

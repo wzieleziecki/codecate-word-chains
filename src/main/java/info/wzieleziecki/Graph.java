@@ -1,14 +1,16 @@
+package info.wzieleziecki;
+
 import java.util.*;
 
-public class Graph {
+class Graph {
 
     private List<String> wordsWithDefinedLetterCount;
 
-    public Graph(List<String> wordsWithDefinedLetterCount) {
+    Graph(List<String> wordsWithDefinedLetterCount) {
         this.wordsWithDefinedLetterCount = wordsWithDefinedLetterCount;
     }
 
-    public List<String> findShortestPath(String startWord, String endWord) {
+    List<String> findShortestPath(String startWord, String endWord) {
 
         Map<String, String> previous = new HashMap<String, String>();
         Queue<String> queue = new LinkedList<String>();
