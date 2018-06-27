@@ -1,4 +1,4 @@
-package info.wzieleziecki;
+package info.wzieleziecki.codecatawordchains;
 
 import org.apache.log4j.Logger;
 

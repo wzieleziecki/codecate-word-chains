@@ -1,4 +1,4 @@
-package info.wzieleziecki;
+package info.wzieleziecki.codecatawordchains;
 
 import org.apache.log4j.Logger;
 
@@ -15,7 +15,7 @@ class Dictionary {
     List<String> loadWordsFromFile(String fileName) {
         List<String> loadedWords = new ArrayList<>();
 
-        try (BufferedReader reader = new BufferedReader( new FileReader(fileName))) {
+        try (BufferedReader reader = new BufferedReader(new FileReader(fileName))) {
             String word;
             while ((word = reader.readLine()) != null && !word.isEmpty()) {
                 loadedWords.add(word);

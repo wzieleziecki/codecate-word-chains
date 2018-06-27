@@ -1,4 +1,4 @@
-package info.wzieleziecki;
+package info.wzieleziecki.codecatawordchains;
 
 import org.junit.Assert;
 import org.junit.Test;
