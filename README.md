@@ -1,5 +1,5 @@
 **Kata19: Word Chains**
 
-Treść zadania można znaleźć [tutaj](http://codekata.com/kata/kata19-word-chains/).
+Problem description is available [here](http://codekata.com/kata/kata19-word-chains/).
 
-Przykładowy [zestaw słów](http://codekata.com/data/wordlist.txt)
+Dictionary example - [set of words](http://codekata.com/data/wordlist.txt)
