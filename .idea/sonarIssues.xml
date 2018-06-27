@@ -28,12 +28,12 @@
             <set />
           </value>
         </entry>
-        <entry key="$PROJECT_DIR$/src/main/java/info/wzieleziecki/Dictionary.java">
+        <entry key="$PROJECT_DIR$/src/test/java/WordChainTest.java">
           <value>
             <set />
           </value>
         </entry>
-        <entry key="$PROJECT_DIR$/src/test/java/WordChainTest.java">
+        <entry key="$PROJECT_DIR$/src/test/java/info/wzieleziecki/GraphTest.java">
           <value>
             <set />
           </value>
