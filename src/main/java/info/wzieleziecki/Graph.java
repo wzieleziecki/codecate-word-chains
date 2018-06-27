@@ -4,22 +4,22 @@ import java.util.*;
 
 class Graph {
 
-    private List<String> wordsWithDefinedLetterCount;
+    private final List<String> wordsWithDefinedLetterCount;
 
     Graph(List<String> wordsWithDefinedLetterCount) {
         this.wordsWithDefinedLetterCount = wordsWithDefinedLetterCount;
     }
 
-    List<String> findShortestPath(String startWord, String endWord) {
+    List<String> findShortestPath(final String startWord, final String endWord) {
 
-        Map<String, String> previous = new HashMap<String, String>();
-        Queue<String> queue = new LinkedList<String>();
+        Map<String, String> previous = new HashMap<>();
+        Queue<String> queue = new LinkedList<>();
         queue.add(startWord);
 
         String word;
         while (!queue.isEmpty() && !((word = queue.remove()).equals(endWord))) {
-            List<String> listOfPossibleNextWords = getListOfPossibleNextWordsOf(word);
-            for (String nextWord : listOfPossibleNextWords) {
+            List<String> possibleWordsList = getPossibleWordsList(word);
+            for (String nextWord : possibleWordsList) {
                 if (!previous.containsKey(nextWord)) {
                     previous.put(nextWord, word);
                     queue.add(nextWord);
@@ -29,10 +29,10 @@ class Graph {
         return getPath(previous, startWord, endWord);
     }
 
-    private List<String> getListOfPossibleNextWordsOf(String word) {
-        List<String> listOfPossibleNextWords = new ArrayList<String>();
+    private List<String> getPossibleWordsList(String word) {
+        List<String> listOfPossibleNextWords = new ArrayList<>();
         for (String considerWord : wordsWithDefinedLetterCount) {
-            if (countNumberOfDifferenceBetweenWords(word, considerWord) == 1) {
+            if (isOneDifferenceBetweenWords(word, considerWord)) {
                 listOfPossibleNextWords.add(considerWord);
             }
         }
@@ -40,18 +40,25 @@ class Graph {
 
     }
 
-    private int countNumberOfDifferenceBetweenWords(final String firstWord, String compareWord) {
-        int numberOfDiffrence = 0;
+    private boolean isOneDifferenceBetweenWords(final String firstWord, String compareWord) {
+        int numberOfDifference = 0;
         for (int i = 0; i < firstWord.length(); i++) {
             if (firstWord.charAt(i) != compareWord.charAt(i)) {
-                numberOfDiffrence++;
+                numberOfDifference++;
+            }
+            if (numberOfDifference > 1) {
+                return false;
             }
         }
-        return numberOfDiffrence;
+        return true;
     }
 
     private List<String> getPath(Map<String, String> previous, String startWord, String endWord) {
-        List<String> path = new ArrayList<String>();
+        if (!previous.containsKey(endWord)) {
+            return Collections.emptyList();
+        }
+
+        List<String> path = new ArrayList<>();
         String word = endWord;
         while (!word.equals(startWord)) {
             path.add(0, word);

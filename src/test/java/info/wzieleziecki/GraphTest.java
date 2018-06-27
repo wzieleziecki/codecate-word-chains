@@ -7,23 +7,25 @@ import java.util.Arrays;
 import java.util.List;
 
 //tests defined based on the challenge description - http://codekata.com/kata/kata19-word-chains/
-public class WordChainTest {
+public class GraphTest {
 
-    private Word word = new Word();
+    private final Word word = new Word();
+
 
     @Test
-    public void solutionForRubyToCode() {
+    public void findPathForRubyToCode() {
         String startWord = "ruby";
+        String endWord = "code";
         List<String> words = word.getWordsWithDefinedLetterNumber(startWord.length());
         Graph graph = new Graph(words);
 
         List<String> firstTestCase = Arrays.asList("ruby", "rubs", "robs", "robe", "rode", "code");
-        List<String> path = graph.findShortestPath("ruby", "code");
+        List<String> path = graph.findShortestPath(startWord, endWord);
         Assert.assertEquals(path, firstTestCase);
     }
 
     @Test
-    public void solutionFromLeadToGold() {
+    public void findPathFromLeadToGold() {
         String startWord = "lead";
         List<String> words = word.getWordsWithDefinedLetterNumber(startWord.length());
         Graph graph = new Graph(words);
@@ -34,7 +36,7 @@ public class WordChainTest {
     }
 
     @Test
-    public void solutionFromCatToDog() {
+    public void findPathFromCatToDog() {
         String startWord = "cat";
         List<String> words = word.getWordsWithDefinedLetterNumber(startWord.length());
         Graph graph = new Graph(words);

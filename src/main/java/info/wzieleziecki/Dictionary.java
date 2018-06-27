@@ -12,32 +12,20 @@ class Dictionary {
 
     private final Logger logger = Logger.getLogger(Main.class);
 
-    List<String> loadWordsFromFile() {
-        List<String> allLoadedWords = new ArrayList<String>();
-        BufferedReader reader = null;
+    List<String> loadWordsFromFile(String fileName) {
+        List<String> loadedWords = new ArrayList<>();
 
-        try {
-            String fileName = "src/main/resources/wordlist.txt";
-            reader = new BufferedReader(new FileReader(fileName));
-
+        try (BufferedReader reader = new BufferedReader( new FileReader(fileName))) {
             String word;
-
-            while ((word = reader.readLine()) != null) {
-                allLoadedWords.add(word);
+            while ((word = reader.readLine()) != null && !word.isEmpty()) {
+                loadedWords.add(word);
             }
 
         } catch (IOException e) {
             logger.trace(e);
-        } finally {
-            try {
-                if (reader != null)
-                    reader.close();
-            } catch (IOException e) {
-                logger.trace(e);
-            }
         }
 
-        return allLoadedWords;
+        return loadedWords;
     }
 
 

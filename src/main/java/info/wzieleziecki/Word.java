@@ -3,14 +3,14 @@ package info.wzieleziecki;
 import java.util.ArrayList;
 import java.util.List;
 
-public class Word {
+class Word {
 
-    private Dictionary dictionary = new Dictionary();
+    private final Dictionary dictionary = new Dictionary();
 
-    private List<String> allWordsFromDictionary = dictionary.loadWordsFromFile();
+    private final List<String> allWordsFromDictionary = dictionary.loadWordsFromFile("src/main/resources/wordlist.txt");
 
     List<String> getWordsWithDefinedLetterNumber(int wordLength) {
-        List<String> wordsWithDefinedLetterNumber = new ArrayList<String>();
+        List<String> wordsWithDefinedLetterNumber = new ArrayList<>();
         for (String word : allWordsFromDictionary) {
             if (word.length() == wordLength) {
                 wordsWithDefinedLetterNumber.add(word);

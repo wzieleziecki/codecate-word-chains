@@ -4,17 +4,17 @@ import org.apache.log4j.Logger;
 
 import java.util.List;
 
-public class Main {
+class Main {
 
     public static void main(String[] args) {
 
         final Logger logger = Logger.getLogger(Main.class);
 
-        String startWord = "ruby";
-        String endWord = "code";
+        String startWord = "cat";
+        String endWord = "dog";
 
         if (startWord.length() != endWord.length()) {
-            logger.info("Words shoud contain the same number of letters");
+            logger.info("Words should contain the same number of letters");
             System.exit(1);
         }
 
@@ -22,11 +22,11 @@ public class Main {
 
         List<String> words = word.getWordsWithDefinedLetterNumber(startWord.length());
         Graph graph = new Graph(words);
-        try {
-            List<String> path = graph.findShortestPath(startWord, endWord);
-            logger.info("Solution for: " + startWord + " to " + endWord + " - " +  path);
-        } catch (NullPointerException n) {
-            logger.info("No solution found. " + n);
+        List<String> shortestPath = graph.findShortestPath(startWord, endWord);
+        if (shortestPath != null) {
+            logger.info(String.format("Solution for: %s to %s - %s", startWord, endWord, shortestPath));
+        } else {
+            logger.info(String.format("No solution found for: %s to %s ", startWord, endWord));
         }
 
     }
