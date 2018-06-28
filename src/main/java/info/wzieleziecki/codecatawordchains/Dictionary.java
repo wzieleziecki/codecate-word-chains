@@ -10,7 +10,7 @@ import java.util.List;
 
 class Dictionary {
 
-    private final Logger logger = Logger.getLogger(Main.class);
+    private final Logger logger = Logger.getLogger(Dictionary.class);
 
     List<String> loadWordsFromFile(String fileName) {
         List<String> loadedWords = new ArrayList<>();

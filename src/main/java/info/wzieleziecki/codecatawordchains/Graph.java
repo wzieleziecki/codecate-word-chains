@@ -10,7 +10,7 @@ class Graph {
         this.wordsWithDefinedLetterCount = wordsWithDefinedLetterCount;
     }
 
-    List<String> findShortestPath(final String startWord, final String endWord) {
+    List<String> findShortestPath( String startWord,  String endWord) {
 
         Map<String, String> previous = new HashMap<>();
         Queue<String> queue = new LinkedList<>();
@@ -40,7 +40,7 @@ class Graph {
 
     }
 
-    private boolean isOneDifferenceBetweenWords(final String firstWord, String compareWord) {
+    private boolean isOneDifferenceBetweenWords( String firstWord, String compareWord) {
         int numberOfDifference = 0;
         for (int i = 0; i < firstWord.length(); i++) {
             if (firstWord.charAt(i) != compareWord.charAt(i)) {

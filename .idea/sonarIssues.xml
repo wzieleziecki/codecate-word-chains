@@ -13,7 +13,7 @@
             <set />
           </value>
         </entry>
-        <entry key="$PROJECT_DIR$/../../../Kursy/MongoDB/spark-freemarker-mongodb/pom.xml">
+        <entry key="C:/Kursy/MongoDB/spark-freemarker-mongodb/pom.xml">
           <value>
             <set />
           </value>
@@ -24,6 +24,16 @@
           </value>
         </entry>
         <entry key="$PROJECT_DIR$/src/main/java/Word.java">
+          <value>
+            <set />
+          </value>
+        </entry>
+        <entry key="$PROJECT_DIR$/src/main/java/info/wzieleziecki/codecatawordchains/Dictionary.java">
+          <value>
+            <set />
+          </value>
+        </entry>
+        <entry key="$PROJECT_DIR$/src/main/java/info/wzieleziecki/codecatawordchains/Graph.java">
           <value>
             <set />
           </value>
